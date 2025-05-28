@@ -1,4 +1,4 @@
-package med.voll.web_application.domain;
+package med.voll.web_application;
 
 public class RegraDeNegocioException extends RuntimeException {
 
