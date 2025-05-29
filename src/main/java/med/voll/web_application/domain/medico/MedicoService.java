@@ -40,6 +40,22 @@ public class MedicoService {
         }
     }
 
+//    @Transactional
+//    public void cadastrar(DadosCadastroMedico dados) {
+//        if (repository.isJaCadastrado(dados.email(), dados.crm(), dados.id())) {
+//            throw new RegraDeNegocioException("E-mail ou CRM já cadastrado para outro médico!");
+//        }
+//
+//        if (dados.id() == null) {
+//            var usuarioId = usuarioService.salvarUsuario(dados.nome(), dados.email(), Perfil.MEDICO);
+//            repository.save(new Medico(usuarioId, dados));
+//
+//        } else {
+//            var medico = repository.findById(dados.id()).orElseThrow();
+//            medico.atualizarDados(dados);
+//        }
+//    }
+
     public DadosCadastroMedico carregarPorId(Long id) {
         var medico = repository.findById(id).orElseThrow();
         return new DadosCadastroMedico(medico.getId(), medico.getNome(), medico.getEmail(), medico.getTelefone(), medico.getCrm(), medico.getEspecialidade());

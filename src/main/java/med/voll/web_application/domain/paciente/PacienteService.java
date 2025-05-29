@@ -38,6 +38,21 @@ public class PacienteService {
         }
     }
 
+//    @Transactional
+//    public void cadastrar(DadosCadastroPaciente dados) {
+//        if (repository.isJaCadastrado(dados.email(), dados.cpf(), dados.id())) {
+//            throw new RegraDeNegocioException("E-mail ou CPF já cadastrado para outro paciente!");
+//        }
+//
+//        if (dados.id() == null) {
+//            var usuarioId = usuarioService.salvarUsuario(dados.nome(), dados.email(), Perfil.PACIENTE);
+//            repository.save(new Paciente(usuarioId, dados));
+//        } else {
+//            var paciente = repository.findById(dados.id()).orElseThrow();
+//            paciente.modificarDados(dados);
+//        }
+//    }
+
     public DadosCadastroPaciente carregarPorId(Long id) {
         var paciente = repository.findById(id).orElseThrow();
         return new DadosCadastroPaciente(paciente.getId(), paciente.getNome(), paciente.getEmail(), paciente.getTelefone(), paciente.getCpf());
